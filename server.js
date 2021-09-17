@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
+const PORT = process.env.PORT || 3000;
 
 // Database Connection
 mongoose
@@ -36,5 +37,5 @@ app.get("/", (req, res) => {
 });
 
 // start the server listening for requests
-const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
