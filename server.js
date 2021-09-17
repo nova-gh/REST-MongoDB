@@ -4,11 +4,15 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
+require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 // Database Connection
 mongoose
-  .connect(dbConfig.db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.M_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(
     () => {
       console.log("DB connected");
