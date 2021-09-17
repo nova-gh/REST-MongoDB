@@ -1,7 +1,6 @@
 // import modules
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
 const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
 require("dotenv").config();
@@ -25,7 +24,6 @@ mongoose
 // express app
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 // middle ware parsers
 app.use(express.urlencoded({ extended: false }));
