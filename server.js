@@ -36,7 +36,7 @@ app.use("/users", userRoute);
 
 // Index Route
 app.get("/", (req, res) => {
-  res.send("Invaild endpoint. Try domain.com/users");
+  res.sendFile("/index.html", { root: __dirname });
 });
 
 // start the server listening for requests
