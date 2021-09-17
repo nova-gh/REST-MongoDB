@@ -24,6 +24,7 @@ userExpressRoute.route("/create-user").post((req, res, next) => {
       return next(error);
     } else {
       res.json(data);
+      console.log("User successfully created!");
     }
   });
 });
@@ -39,22 +40,31 @@ userExpressRoute.route("/get-user/:id").get((req, res) => {
 });
 //Update user by id
 userExpressRoute.route("/update-user/:id").get((req, res, next) => {
-  UserSchema.findByIdAndUpdate(req.params.id, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
+  UserSchema.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+        console.log("User successfully updated!");
+      }
     }
-  });
+  );
 });
 // Delete user by ID
 userExpressRoute.route("/remove-user/:id").delete((req, res) => {
-  UserSchema.findById(req.params.id, (error, data) => {
+  UserSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
-      res.json(data);
+      res.status(200).json({ msg: data });
+      console.log("User successfully deleted!");
     }
   });
 });
+
 module.exports = userExpressRoute;
