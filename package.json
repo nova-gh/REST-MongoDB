@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Nova Gh",
   "license": "ISC",
@@ -17,5 +18,8 @@
   "devDependencies": {
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "14.6.1"
   }
 }
