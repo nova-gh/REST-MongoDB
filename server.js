@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
 
 // Database Connection
-mongoose.Promise = global.Promise;
 mongoose
   .connect(dbConfig.db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(
