@@ -7,14 +7,16 @@ const dbConfig = require("./config/db.config");
 
 // Database Connection
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {}).then(
-  () => {
-    console.log("DB connected");
-  },
-  (error) => {
-    console.log("DB failed to connect," + error);
-  }
-);
+mongoose
+  .connect(dbConfig.db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(
+    () => {
+      console.log("DB connected");
+    },
+    (error) => {
+      console.log("DB failed to connect," + error);
+    }
+  );
 
 // express app
 const app = express();
