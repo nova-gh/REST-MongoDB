@@ -24,7 +24,6 @@ app.use(express.json());
 app.use(cors());
 
 // middle ware parsers
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // APi route
